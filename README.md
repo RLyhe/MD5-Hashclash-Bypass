@@ -73,3 +73,6 @@ radtest collision1 password 127.0.0.1 0 SharedSecret
 ## Catch Package
 
 Use ``wireshark`` to catch packge, and check the content in raw format.
+
+## Hashclash
+In folder ``/Package``, run ``radius_attack.cpp``
