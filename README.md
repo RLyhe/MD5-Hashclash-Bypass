@@ -70,6 +70,6 @@ Check if the ``maxblocks < 3``
 radtest collision1 password 127.0.0.1 0 SharedSecret
 ```
 
-#### Catch Package
+## Catch Package
 
 Use ``wireshark`` to catch packge, and check the content in raw format.
