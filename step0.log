@@ -1,0 +1,13 @@
+[*] Starting step 0
+MD5 differential path toolbox
+Copyright (C) 2009 Marc Stevens
+http://homepages.cwi.nl/~stevens/
+
+IHV1   = {1732584193,4023233417,2562383102,271733878}
+IHV1   = 0123456789abcdeffedcba9876543210
+
+IHV2   = {1732584193,4023233417,2562383102,271733878}
+IHV2   = 0123456789abcdeffedcba9876543210
+
+dIHV   = {0,0,0,0}
+dIHV is zero!

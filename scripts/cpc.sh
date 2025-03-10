@@ -13,7 +13,7 @@ if [ ! -z $MAXCPUS ]; then
 	fi
 fi
 export TTT=12
-export EXPECTED_BLOCKTIME=$((3600 * 8 / $CPUS))
+export EXPECTED_BLOCKTIME=$((3600 * 80 / $CPUS))
 export AUTO_KILL_TIME=$((EXPECTED_BLOCKTIME * 2))
 
 rm -r data 2>/dev/null
@@ -42,12 +42,12 @@ fi
 if [ "$3" = "" ] ; then
 	# check for CUDA / AVX256 threads
 	echo -n "Detecting worklevel..."
-	worklevel=`$BIRTHDAYSEARCH --inputfile1 "$file1" --inputfile2 "$file2" --hybridbits 0 --pathtyperange 2 --maxblocks 9 --maxmemory 100 --threads $CPUS --cuda_enable |& grep "^Work" -m1 | head -n1 | cut -d'(' -f2 | cut -d'.' -f1`
+	worklevel=`$BIRTHDAYSEARCH --inputfile1 "$file1" --inputfile2 "$file2" --hybridbits 0 --pathtyperange 2 --maxblocks 3 --maxmemory 1000 --threads $CPUS --cuda_enable |& grep "^Work" -m1 | head -n1 | cut -d'(' -f2 | cut -d'.' -f1`
 	echo ": $worklevel"
 	if [ $worklevel -ge 31 ]; then
-		$BIRTHDAYSEARCH --inputfile1 "$file1" --inputfile2 "$file2" --hybridbits 0 --pathtyperange 2 --maxblocks 7 --maxmemory 4000 --threads $CPUS --cuda_enable
+		$BIRTHDAYSEARCH --inputfile1 "$file1" --inputfile2 "$file2" --hybridbits 0 --pathtyperange 2 --maxblocks 1 --maxmemory 4000 --threads $CPUS --cuda_enable
 	else
-		$BIRTHDAYSEARCH --inputfile1 "$file1" --inputfile2 "$file2" --hybridbits 0 --pathtyperange 2 --maxblocks 9 --maxmemory 100 --threads $CPUS --cuda_enable
+		$BIRTHDAYSEARCH --inputfile1 "$file1" --inputfile2 "$file2" --hybridbits 0 --pathtyperange 2 --maxblocks 3 --maxmemory 1000 --threads $CPUS --cuda_enable
 	fi
 	notify "Birthday search completed."
 
